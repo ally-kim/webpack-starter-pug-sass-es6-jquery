@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // Files
 const utils = require('./utils')
@@ -127,11 +128,10 @@ module.exports = env => {
         name: 'vendor'
       }),
 
-      /*
-        Pages
-      */
-
       // // Desktop page
+      new CleanWebpackPlugin(['*'], {
+        root: path.resolve(__dirname, '../dist')
+      }),
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'views/index.pug',
@@ -139,7 +139,7 @@ module.exports = env => {
       }),
 
       ...utils.pages(env),
-      ...utils.pages(env, 'blog'),
+      // ...utils.pages(env, 'blog'),
 
       new webpack.ProvidePlugin({
         $: 'jquery',
