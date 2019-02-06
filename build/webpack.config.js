@@ -37,9 +37,6 @@ module.exports = env => {
       }
     },
 
-    /*
-      Loaders with their configurations
-    */
     module: {
       rules: [
         {
