@@ -1,0 +1,14 @@
+extends ../layouts/master.pug
+
+block title
+  title Let's work
+
+block manifestBrowserconfigFiles
+  link(href='../manifest.json', rel='manifest')
+  meta(name='msapplication-config' content='../browserconfig.xml')
+
+block content
+
+  //- Desktop page
+  section.page.home__page
+    h1.page__title About page

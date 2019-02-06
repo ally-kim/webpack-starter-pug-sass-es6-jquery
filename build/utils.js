@@ -5,14 +5,14 @@ exports.pages = function (env, folder = '') {
   const path = require('path')
   const viewsFolder = path.resolve(__dirname, `../src/views/${rootPagesFolderName}/${folder}`)
 
-  var pages = []
+  const pages = []
 
   fs.readdirSync(viewsFolder).forEach(view => {
     if (view.split('.')[1] === undefined)
       return false;
 
     const viewName = view.split('.')[0];
-    const fileName = folder === '' ? `${viewName}/index.html` : `${folder}/${viewName}/index.html`;
+    const fileName = folder === '' ? `${viewName}.html` : `${folder}/${viewName}.html`;
     const options = {
       filename: fileName,
       template: `views/${rootPagesFolderName}/${folder}/${view}`,
