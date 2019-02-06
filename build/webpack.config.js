@@ -82,7 +82,10 @@ module.exports = env => {
           test: /\.pug$/,
           use: [
             {
-              loader: 'pug-loader'
+              loader: 'pug-loader',
+              options: {
+                pretty: true
+              }
             }
           ]
         },
